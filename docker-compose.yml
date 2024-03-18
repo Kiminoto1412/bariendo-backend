@@ -1,0 +1,18 @@
+version: '1'
+
+name: template_typeorm_class_init
+
+services:
+  # Postgis service
+  postgres:
+    image: postgres:latest
+    container_name: default-postgis
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
